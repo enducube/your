@@ -1,0 +1,22 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<p>yingus</p>
+
+<form>
+<input type="text" id="str" autocomplete="off" placeholder="message">
+<input type="submit">
+</form>
+
+<script>
+    var socket = io();
+    $("form").submit(function(e) {
+        socket.emit("msg",$("#str").val());
+        e.preventDefault();
+        $('#str').val('');
+    });
+    socket.on("message", function(data) {
+        var text = document.createElement("p");
+        text.innerHTML = data;
+        document.body.appendChild(text);
+        })
+</script>
