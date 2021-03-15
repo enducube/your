@@ -3,20 +3,19 @@
 <p>yingus</p>
 
 <form>
-<input type="text" id="str" autocomplete="off" placeholder="message">
-<input type="submit">
+<input type="submit" value="Click">
 </form>
+
+<div></div>
+
 
 <script>
     var socket = io();
     $("form").submit(function(e) {
-        socket.emit("msg",$("#str").val());
+        socket.emit("click");
         e.preventDefault();
-        $('#str').val('');
     });
-    socket.on("message", function(data) {
-        var text = document.createElement("p");
-        text.innerHTML = data;
-        document.body.appendChild(text);
+    socket.on("reload", function(data) {
+        $("div").load("/int");
         })
 </script>
