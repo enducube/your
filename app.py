@@ -45,5 +45,5 @@ def bruh():
 
 
 if __name__ == '__main__':
-    print("bar 127.0.0.1:5000/")
+    print("bark 127.0.0.1:5000/")
     socketio.run(app)
